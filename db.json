@@ -1,0 +1,360 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "fabio@teste.com",
+      "name": "Fabio Tetsuo",
+      "role": "ADMIN",
+      "avatar": "/keivn123.jpg",
+      "createdAt": "2024-07-28T16:25:58.655Z",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "name": "Joao Teste",
+      "email": "joao@teste.com",
+      "password": "12345",
+      "createdAt": "2024-07-28T16:25:58.655Z",
+      "avatar": "/no-avatar.png"
+    },
+    {
+      "name": "Fulano de Tal",
+      "email": "fulano@teste.com",
+      "password": "asdasd",
+      "role": "ADMIN",
+      "id": 3
+    },
+    {
+      "name": "Teste DNC",
+      "email": "teste@dnc.com.br",
+      "password": "12345",
+      "role": "ADMIN",
+      "id": 4,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2024-08-11T21:45:05.938Z"
+    },
+    {
+      "name": "Teste DNC",
+      "email": "teste@dnc.com.br",
+      "password": "12345",
+      "role": "ADMIN",
+      "id": 5,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2024-08-11T21:51:29.224Z"
+    },
+    {
+      "email": "kevind@gmadil.com",
+      "password": "123456789",
+      "role": "ADMIN",
+      "id": 6,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2026-01-28T00:38:16.725Z"
+    },
+    {
+      "email": "kevind@gmadil.com",
+      "password": "123456789",
+      "role": "ADMIN",
+      "id": 7,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2026-01-28T00:38:19.363Z"
+    },
+    {
+      "email": "kevind@gmadil.com",
+      "password": "123456789",
+      "role": "ADMIN",
+      "id": 8,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2026-01-28T00:38:20.644Z"
+    },
+    {
+      "name": "Kevin Ruan Spredemann",
+      "email": "kevinspredemann50@gmail.com",
+      "password": "12345678",
+      "role": "USER",
+      "id": 9,
+      "avatar": "/no-avatar.png",
+      "createdAt": "2026-01-28T00:42:24.698Z"
+    }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel Luxo Central",
+      "description": "Hotel moderno no centro da cidade",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel1.jpg",
+      "price": 450,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/keivn123.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hotel Praia Azul",
+      "description": "Hotel com vista para o mar e café da manhã incluso",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel2.jpg",
+      "price": 520,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Hotel Vista Verde",
+      "description": "Hotel tranquilo cercado pela natureza",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel2.jpg",
+      "price": 380,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Hotel Sol Nascente",
+      "description": "Hotel confortável com ótima iluminação natural",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel3.jpg",
+      "price": 410,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Hotel Boulevard",
+      "description": "Hotel elegante próximo às principais avenidas",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel5.jpg",
+      "price": 470,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Hotel Serra Azul",
+      "description": "Hotel aconchegante com clima de montanha",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel4.jpg",
+      "price": 360,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Hotel Golden Park",
+      "description": "Hotel premium com áreas de lazer completas",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel5.jpg",
+      "price": 590,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Hotel Urban Style",
+      "description": "Hotel moderno com design contemporâneo",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel6.jpg",
+      "price": 430,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Hotel Jardim Real",
+      "description": "Hotel sofisticado com jardins internos",
+      "address": "Rua Dnc, 123",
+      "image": "/hotel7.jpg",
+      "price": 500,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Hotel Econômico Plus",
+      "description": "Hotel acessível com excelente custo-benefício",
+      "address": "Rua Dnc, 123",
+      "image": null,
+      "price": 280,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Hotel Business Prime",
+      "description": "Hotel ideal para viagens corporativas",
+      "address": "Rua Dnc, 123",
+      "image": null,
+      "price": 490,
+      "ownerId": 1,
+      "createdAt": "2024-08-10T16:35:12.233Z",
+      "updatedAt": "2024-08-10T16:35:12.233Z",
+      "owner": {
+        "id": 1,
+        "email": "fabio@teste.com",
+        "name": "Fabio Tetsuo",
+        "role": "ADMIN",
+        "avatar": "/user-photo.jpg",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "password": "12345"
+      }
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "userId": 2,
+      "hotelId": 2,
+      "checkIn": "2024-08-30T03:00:00.000Z",
+      "checkOut": "2024-09-05T03:00:00.000Z",
+      "total": -7674,
+      "status": "CANCELLED",
+      "createdAt": "2024-08-10T21:06:07.818Z",
+      "updatedAt": "2024-08-10T21:06:07.818Z",
+      "user": {
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": "/no-avatar.png"
+      }
+    },
+    {
+      "id": 1,
+      "userId": 2,
+      "hotelId": 2,
+      "checkIn": "2024-08-30T03:00:00.000Z",
+      "checkOut": "2024-09-05T03:00:00.000Z",
+      "total": -7674,
+      "status": "APPROVED",
+      "createdAt": "2024-08-10T21:06:07.818Z",
+      "updatedAt": "2024-08-10T21:06:07.818Z",
+      "user": {
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": "/no-avatar.png"
+      }
+    },
+    {
+      "id": 1,
+      "userId": 2,
+      "hotelId": 2,
+      "checkIn": "2024-08-30T03:00:00.000Z",
+      "checkOut": "2024-09-05T03:00:00.000Z",
+      "total": -7674,
+      "status": "PENDING",
+      "createdAt": "2024-08-10T21:06:07.818Z",
+      "updatedAt": "2024-08-10T21:06:07.818Z",
+      "user": {
+        "id": 2,
+        "name": "Joao Teste",
+        "email": "joao@teste.com",
+        "password": "12345",
+        "createdAt": "2024-07-28T16:25:58.655Z",
+        "avatar": "/no-avatar.png"
+      }
+    }
+  ]
+}
