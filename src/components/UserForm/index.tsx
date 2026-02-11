@@ -20,7 +20,6 @@ type UserFormProps = {
 const UserForm = ({ user }: UserFormProps) => {
   const action = user ? updateProfile : signup;
   const [state, formAction] = useActionState(action, initialState);
-
   return (
     <>
       {state.error && <Alert type="danger">{state.message}</Alert>}
