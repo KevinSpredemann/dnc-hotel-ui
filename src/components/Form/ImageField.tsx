@@ -7,14 +7,13 @@ type ImageFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
 };
 
-const MAX_SIZE = 300 * 1024; // 300KB
+const MAX_SIZE = 900 * 1024;
 
-const ImageField = ({ id, label, name }: ImageFieldProps) => {
+const ImageField = ({ id, label, name, defaultValue }: ImageFieldProps) => {
   const [image, setImage] = useState<string | null | ArrayBuffer>(null);
   const [exceededImageSize, setExceededImageSize] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
     const file = e.target.files?.[0];
     const reader = new FileReader();
 
@@ -31,11 +30,12 @@ const ImageField = ({ id, label, name }: ImageFieldProps) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Image
-        src={image ? (image as string) : "/no-avatar.png"}
+        src={(image as string) ?? defaultValue ?? "/no-avatar.png"}
         width={100}
         height={100}
         alt="Profile picture"
         className="rounded-full relative object-cover w-24 h-24"
+        unoptimized
       />
       <label
         htmlFor={id}
@@ -45,7 +45,7 @@ const ImageField = ({ id, label, name }: ImageFieldProps) => {
       </label>
       {exceededImageSize && (
         <p className="text-red-500 text-sm font-bold">
-          A imagem excede o tamanho máximo de 300KB.
+          A imagem excede o tamanho máximo.
         </p>
       )}
       <input

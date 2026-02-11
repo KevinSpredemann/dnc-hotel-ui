@@ -47,7 +47,7 @@ export async function updateProfile(
 
   try {
     const avatar = formData.get("avatar") as File;
-
+    console.log("Avatar recebido no backend: ", avatar);
     const { id } = decryptToken(accessToken);
 
     const payload = {
@@ -55,7 +55,7 @@ export async function updateProfile(
       email: formData.get("email"),
     };
 
-    axios.patch(`/users/${id}`, payload, {
+    await axios.patch(`/users/${id}`, payload, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
 

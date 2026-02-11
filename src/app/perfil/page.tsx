@@ -7,9 +7,15 @@ import DetailRow from "@/src/components/DetailListItem/DetailRow";
 import Link from "@/src/components/Link";
 import { Reservation } from "@/src/types/Reservation";
 import DetailListItem from "@/src/components/DetailListItem";
+import { Hotel } from "@/src/types/Hotel";
+import HotelListItem from "@/src/components/HotelListItem";
 
 type RecentReservationProps = {
   reservation?: Reservation;
+};
+
+type MyHotelProps = {
+  hotels?: Hotel[];
 };
 const RecentReservation = ({ reservation }: RecentReservationProps) => {
   if (!reservation) {
@@ -31,19 +37,49 @@ const RecentReservation = ({ reservation }: RecentReservationProps) => {
   );
 };
 
+const MyHotels = ({ hotels }: MyHotelProps) => {
+  if (!hotels) {
+    return (
+      <div className="mt-10 w-full flex flex-col justify-start">
+        <span className="text-gray-400">Nenhuma hospedagem cadastrada</span>
+      </div>
+    );
+  }
+  return (
+    <>
+      <div className="my-10">
+        {hotels.slice(0, 2).map((hotel) => (
+          <HotelListItem key={hotel.id} hotel={hotel} />
+        ))}
+      </div>
+      <Link href="/minhas-hospedagens" className="flex justify-center">
+        Ver todas as minhas hospedagens
+      </Link>
+    </>
+  );
+};
+
 const PerfilPage = async () => {
   const session = await getServerSession();
   if (!session?.user) redirect("/login");
 
   const user = await getProfile();
+
+  const asideContainer =
+    user.role === "USER"
+      ? {
+          title: "Reserva mais recente",
+          children: <RecentReservation reservation={user.lastReservation} />,
+        }
+      : {
+          title: "Minhas hospedagens",
+          children: <MyHotels hotels={user.hotels} />,
+        };
   return (
     <DetailPage
       title="Meu perfil"
       previousPageUrl="/"
-      asideContainer={{
-        title: "Reserva mais recente",
-        children: <RecentReservation reservation={user.lastReservation} />,
-      }}
+      asideContainer={asideContainer}
     >
       <div className="mt-4 flex flex-col justify-center items-center">
         <Image

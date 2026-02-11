@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 
 type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
+  label?: string;
   error?: string | null | boolean;
 };
 const TextField = ({

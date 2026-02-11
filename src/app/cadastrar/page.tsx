@@ -1,4 +1,3 @@
-"use client";
 import Link from "@/src/components/Link";
 import UserForm from "@/src/components/UserForm";
 const CadastrarPage = () => {
