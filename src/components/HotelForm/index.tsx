@@ -6,22 +6,33 @@ import MoneyField from "../Form/MoneyField";
 import { useActionState } from "react";
 import { createHotel } from "@/src/app/api/hotels/actions";
 import Alert from "../Alert";
+import { Hotel } from "@/src/types/Hotel";
 
 const initialState = { error: false, message: "" };
 
-const HotelForm = () => {
+type HotelFormProps = {
+  hotel?: Hotel;
+};
+
+const HotelForm = ({ hotel }: HotelFormProps) => {
   const [state, formAction] = useActionState(createHotel, initialState);
   return (
     <>
       <form className="w-full" action={formAction}>
         {state.error && <Alert type="danger">{state.message}</Alert>}
-        <ImageField name="image" label="Selecionar foto" id="image" />
+        <ImageField
+          name="image"
+          label="Selecionar foto"
+          id="image"
+          defaultValue={hotel?.image as string}
+        />
         <TextField
           label="Nome da hospedagem"
           type="text"
           id="name"
           name="name"
           className="mt-2"
+          defaultValue={hotel?.name}
           required
         />
         <TextField
@@ -30,6 +41,7 @@ const HotelForm = () => {
           id="description"
           name="description"
           className="mt-2"
+          defaultValue={hotel?.description}
           required
         />
         <MoneyField
@@ -37,6 +49,7 @@ const HotelForm = () => {
           label="Preço da diária"
           name="price"
           className="mt-2"
+          defaultValue={hotel?.price}
           required
         />
         <TextField
@@ -45,6 +58,7 @@ const HotelForm = () => {
           id="address"
           name="address"
           className="mt-2"
+          defaultValue={hotel?.address}
           required
         />
         <Button appearance="primary" type="submit" className="mt-2">
