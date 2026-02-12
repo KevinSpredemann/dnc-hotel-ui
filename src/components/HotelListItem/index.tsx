@@ -15,14 +15,15 @@ const HotelListItem = ({ hotel }: HotelListProps) => {
       className="flex w-full mt-5 mb-5 md:mt-0"
       key={hotel.ownerId}
     >
-      <Image
-        src={hotel.image ?? "/no-hotel.jpg"}
-        alt={`Foto do hotel ${hotel.name}`}
-        width={300}
-        height={300}
-        className="rounded-lg w-32 h-32 object-cover"
-        unoptimized
-      />
+      <div className="relative w-32 h-32 shrink-0">
+        <Image
+          src={hotel.image ?? "/no-hotel.jpg"}
+          alt={`Foto do hotel ${hotel.name}`}
+          fill
+          className="rounded-lg object-cover"
+          unoptimized
+        />
+      </div>
       <div className="w-full flex flex-col justify-between ml-4">
         <b>{hotel.name}</b>
         <div>

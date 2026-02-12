@@ -1,6 +1,7 @@
 "use server";
 import axios from "@/src/api";
 import { Hotel, HotelPagination } from "@/src/types/Hotel";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -127,8 +128,6 @@ export async function updateHotel(
       address: formData.get("address"),
     };
 
-    console.log(payload, { id });
-
     const { data } = await axios.patch(`/hotels/${id}`, payload, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
@@ -142,6 +141,8 @@ export async function updateHotel(
       await axios.patch(`/hotels/image/${hotelId}`, imageFormData, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
+      console.log("image:", image);
+      console.log("size:", image?.size);
     }
   } catch (error) {
     console.log("tratar erro: ", error);
@@ -163,6 +164,5 @@ export async function getHotelByOwner(): Promise<Hotel[]> {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
 
-  console.log(data);
   return data;
 }

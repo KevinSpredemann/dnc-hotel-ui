@@ -4,7 +4,7 @@ import TextField from "../Form/TextField";
 import Button from "../Button";
 import MoneyField from "../Form/MoneyField";
 import { useActionState } from "react";
-import { createHotel } from "@/src/app/api/hotels/actions";
+import { createHotel, updateHotel } from "@/src/app/api/hotels/actions";
 import Alert from "../Alert";
 import { Hotel } from "@/src/types/Hotel";
 
@@ -15,7 +15,8 @@ type HotelFormProps = {
 };
 
 const HotelForm = ({ hotel }: HotelFormProps) => {
-  const [state, formAction] = useActionState(createHotel, initialState);
+  const action = hotel ? updateHotel : createHotel;
+  const [state, formAction] = useActionState(action, initialState);
   return (
     <>
       <form className="w-full" action={formAction}>
@@ -26,6 +27,16 @@ const HotelForm = ({ hotel }: HotelFormProps) => {
           id="image"
           defaultValue={hotel?.image as string}
         />
+        {hotel?.id && (
+          <TextField
+            label="id"
+            type="text"
+            id="id"
+            name="id"
+            className="sr-only"
+            defaultValue={hotel?.id}
+          />
+        )}
         <TextField
           label="Nome da hospedagem"
           type="text"
@@ -62,7 +73,7 @@ const HotelForm = ({ hotel }: HotelFormProps) => {
           required
         />
         <Button appearance="primary" type="submit" className="mt-2">
-          Cadastrar
+          {hotel ? "Editar" : "Cadastrar"}
         </Button>
       </form>
     </>
