@@ -1,7 +1,6 @@
 "use server";
 import axios from "@/src/api";
 import { Hotel, HotelPagination } from "@/src/types/Hotel";
-import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 

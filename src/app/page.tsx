@@ -27,7 +27,7 @@ export default async function Home({ searchParams }: HomeProps) {
         {hotels.map((hotel) => (
           <Link href={`/hotels/${hotel.id}`} key={hotel.id}>
             <article className="flex flex-col">
-              <div className="w-54 h-48">
+              <div className="w-54 h-48 shrink-0 relative">
                 <Image
                   src={hotel.image ?? "/no-hotel.jpg"}
                   width={250}

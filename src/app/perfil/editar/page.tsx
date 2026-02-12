@@ -7,7 +7,6 @@ import { redirect } from "next/navigation";
 const EditarPage = async () => {
   const session = await getServerSession();
   if (!session?.user) redirect("/login");
-  console.log(session.user);
   return (
     <section className="max-w-96 w-full flex justify-center items-center flex-col py-4 px-6 border border-light-grey-500 rounded-2xl">
       <span className="mb-2">Editar perfil</span>
