@@ -13,9 +13,8 @@ type AsideContainerProps = {
 };
 
 type DetailPageProps = {
-  previousPageUrl: string;
-  additionalLink?: string;
-  additionalText?: string;
+  previousPageUrl?: string;
+  backButton?: React.ReactNode;
   children: React.ReactNode;
   image?: ImageProps;
   title: string | React.ReactNode;
@@ -24,8 +23,7 @@ type DetailPageProps = {
 
 const DetailPage = ({
   previousPageUrl = "/",
-  additionalLink,
-  additionalText,
+  backButton,
   image,
   title,
   asideContainer,
@@ -34,10 +32,7 @@ const DetailPage = ({
   return (
     <div className="flex flex-col w-full px-10 py-20 sm:px-20 md:px-32 lg:px-56 xl:px-72">
       <section className="w-full flex justify-between">
-        <Link href={previousPageUrl}>Voltar</Link>
-        {additionalLink && additionalText && (
-          <Link href={additionalLink}>{additionalText}</Link>
-        )}
+        {backButton ? backButton : <Link href={previousPageUrl}>Voltar</Link>}
       </section>
       {image && (
         <section className="relative w-full h-80 mt-2">

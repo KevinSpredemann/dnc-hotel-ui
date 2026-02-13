@@ -5,11 +5,10 @@ import { getReservationById } from "../../api/reservations/actions";
 import DetailPage from "@/src/components/DetailPage";
 import UserDetail from "@/src/components/UserDetail";
 import DetailRow from "@/src/components/DetailListItem/DetailRow";
-import { get } from "http";
 import { getFormattedPrice } from "@/src/helpers/format/money";
 import { getFormattedDate } from "@/src/helpers/format/date";
 import { getFormattedStatus } from "@/src/helpers/format/dictionary";
-import Link from "@/src/components/Link";
+import BackButton from "./BackButton";
 
 const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
   const { id } = await params;
@@ -30,7 +29,9 @@ const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
         src: reservation.hotel.image || "/no-hotel.jpg",
         alt: `Foto do hotel ${reservation.hotel.name}`,
       }}
-      previousPageUrl="/reservas"
+      backButton={
+        <BackButton reservations={reservation} text="Voltar" className="" />
+      }
       asideContainer={{
         title: "Informações da estadia",
         children: (
@@ -61,14 +62,12 @@ const DetalhesReservaPage = async ({ params }: DetailPageProps) => {
               className="mt-6"
             />
             <hr className="mt-10" />
-            <Link className="block w-full text-center mt-10" href={"/reservas"}>
-              Voltar para minhas reservas
-            </Link>
+            <BackButton reservations={reservation} />
           </div>
         ),
       }}
     >
-      <UserDetail user={reservation.hotel.owner} />
+      <UserDetail reservation={reservation} />
       <hr className="my-4" />
       <div className="flex flex-col mt-4">
         <h3 className="font-bold text-2xl">Endereço</h3>

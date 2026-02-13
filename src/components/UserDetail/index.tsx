@@ -1,10 +1,38 @@
-import { User } from "@/src/types/User";
+"use client";
+
+import { Reservation } from "@/src/types/Reservation";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 type UserDetailProps = {
-  user: User;
+  reservation: Reservation;
 };
-const UserDetail = ({ user }: UserDetailProps) => {
+const UserDetail = ({ reservation }: UserDetailProps) => {
+  const { data } = useSession();
+  const showUserDetail = !!data?.user?.role;
+
+  const user =
+    reservation?.user?.role === "USER"
+      ? reservation.hotel.owner
+      : reservation.user;
+
+  if (!showUserDetail) {
+    return (
+      <div className="max-w-sm w-full mt-4">
+        <div className="animate-pulse flex space-x-4">
+          <div className="rounded-full bg-slate-300 h-14 w-14"></div>
+          <div className="flex-1 space-y-4 py-1">
+            <div className="h-2 bg-slate-300 rounded"></div>
+            <div className="space-y-3">
+              <div className="grid grid-cols-3 gap-4">
+                <div className="h-2 bg-slate-300 rounded col-span-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="mt-4 flex">
       <Image

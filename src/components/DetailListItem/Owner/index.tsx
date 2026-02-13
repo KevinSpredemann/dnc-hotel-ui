@@ -26,6 +26,7 @@ const ReservationOwnerListItem = ({
       setLoading(false);
       router.push(`/reservas/${reservation.id}`);
     } catch (error) {
+      console.log(error);
       setLoading(false);
     }
   };
