@@ -30,7 +30,7 @@ const HotelDetail = async ({ params }: DetailPageProps) => {
         children: <HotelBookingForm hotel={hotel} />,
       }}
     >
-      <UserDetail user={hotel.owner} />
+      <UserDetail user={hotel} />
       <hr className="mt-4" />
       <div className="flex flex-col mt-4">
         <h3 className="font-bold text-2xl">Endereço</h3>

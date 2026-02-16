@@ -14,7 +14,7 @@ const UserDetail = ({ reservation }: UserDetailProps) => {
   const user =
     reservation?.user?.role === "USER"
       ? reservation.hotel.owner
-      : reservation.user;
+      : reservation?.user;
 
   if (!showUserDetail) {
     return (
