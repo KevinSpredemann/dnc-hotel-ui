@@ -74,6 +74,33 @@
       "id": 9,
       "avatar": "/no-avatar.png",
       "createdAt": "2026-01-28T00:42:24.698Z"
+    },
+    {
+      "name": "Kevin Kostner",
+      "email": "kevinkostner@gmail.com",
+      "password": "12345678",
+      "role": "ADMIN",
+      "id": 10,
+      "avatar": null,
+      "createdAt": "2026-02-17T02:36:47.124Z"
+    },
+    {
+      "name": "Kevin Kostner",
+      "email": "kevinkostner@gmail.com",
+      "password": "12345678",
+      "role": "ADMIN",
+      "id": 11,
+      "avatar": null,
+      "createdAt": "2026-02-17T02:37:33.510Z"
+    },
+    {
+      "name": "Kevin Kostner",
+      "email": "kevinkostner@gmail.com",
+      "password": "12345678",
+      "role": "ADMIN",
+      "id": 12,
+      "avatar": null,
+      "createdAt": "2026-02-17T02:49:13.989Z"
     }
   ],
   "hotels": [

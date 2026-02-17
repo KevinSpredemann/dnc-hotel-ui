@@ -34,7 +34,6 @@ app.post("/auth/login", (req, res) => {
 app.post("/auth/register", (req, res) => {
   const body = req.body;
   const users = app.db.get("users").value();
-  console.log({ users });
   const id = users.length ? Math.max(...users.map((user) => user.id)) : 1;
 
   const newUser = {
