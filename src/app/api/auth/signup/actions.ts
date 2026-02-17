@@ -2,6 +2,7 @@
 
 import axios from "@/src/api";
 import { UserFormState } from "@/src/types/UserFormState";
+import { redirect } from "next/navigation";
 
 export async function signup(
   prevState: UserFormState,
@@ -28,12 +29,13 @@ export async function signup(
         headers: { Authorization: `Bearer ${access_token}` },
       });
     }
-
-    return { error: false };
   } catch (error) {
     return {
+      ...prevState,
       error: true,
-      message: "Não foi possível realizar seu cadastro, tente novamente mais tarde",
+      message: "Não foi possível cadastrar usuário",
     };
   }
+
+  redirect("/login");
 }
