@@ -16,6 +16,7 @@ const UserDetail = ({ user }: UserDetailProps) => {
         width={56}
         height={56}
         className="rounded-full w-14 h-14 object-cover"
+        unoptimized
       />
       <div className="flex flex-col ml-2 justify-center">
         <b>Anfitriã(o): {user.name}</b>

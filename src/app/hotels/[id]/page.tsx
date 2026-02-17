@@ -1,12 +1,11 @@
 import DetailPage from "@/src/components/DetailPage";
 import { getHotelDetail } from "../../api/hotels/actions";
 import { getFormattedPrice } from "@/src/helpers/format/money";
-import Image from "next/image";
 import HotelBookingForm from "../HotelBookingForm";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { DetailPageProps } from "@/src/types/DetailPage";
-import UserDetail from "@/src/components/UserDetail";
+import UserDetail from "@/src/components/UserDetail/server";
 
 const HotelDetail = async ({ params }: DetailPageProps) => {
   const session = await getServerSession();
@@ -30,7 +29,7 @@ const HotelDetail = async ({ params }: DetailPageProps) => {
         children: <HotelBookingForm hotel={hotel} />,
       }}
     >
-      <UserDetail user={hotel} />
+      <UserDetail user={hotel.owner} />
       <hr className="mt-4" />
       <div className="flex flex-col mt-4">
         <h3 className="font-bold text-2xl">Endereço</h3>

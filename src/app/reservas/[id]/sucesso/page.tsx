@@ -1,9 +1,8 @@
 import { getReservationById } from "@/src/app/api/reservations/actions";
 import Link from "@/src/components/Link";
-import UserDetail from "@/src/components/UserDetail";
+import UserDetail from "@/src/components/UserDetail/server";
 import { DetailPageProps } from "@/src/types/DetailPage";
 import { getServerSession } from "next-auth";
-import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";

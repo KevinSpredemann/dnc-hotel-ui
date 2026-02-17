@@ -37,7 +37,7 @@ const UserDetail = ({ reservation }: UserDetailProps) => {
     <div className="mt-4 flex">
       <Image
         key={user.avatar}
-        src={user.avatar || "/no-avatar.png"}
+        src={user.avatar ?? "/no-avatar.png"}
         alt={`Foto do proprietário do hotel ${user.name}`}
         width={56}
         height={56}
