@@ -20,7 +20,6 @@ export async function getHotels(
     params: { page, limit },
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      "Cache-Control": "no-cache",
     },
   });
 
@@ -34,7 +33,6 @@ export const getHotelDetail = async (id: number): Promise<Hotel> => {
   const { data } = await axios.get(`/hotels/${id}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      "Cache-Control": "no-cache",
     },
   });
 
@@ -48,7 +46,6 @@ export const getHotelById = async (id: number): Promise<Hotel> => {
   const { data } = await axios.get(`/hotels/${id}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
-      "Cache-Control": "no-cache",
     },
   });
 
