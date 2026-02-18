@@ -1,19 +1,12 @@
 import { ReactNode } from "react";
-import Image from "next/image";
+import Header from "./Header";
 type LayoutProps = {
   children: ReactNode;
 };
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="h-screen flex flex-col">
-      <header className="shrink-0 w-full flex justify-center py-5 border-b border-b-light-grey-400 ">
-        <Image
-          src="/dnc-logo-black.svg"
-          alt="DNC Hotel Logo"
-          width={45}
-          height={40}
-        />
-      </header>
+      <Header />
       <main className="flex-1  w-full flex justify-center items-center p-2">
         {children}
       </main>

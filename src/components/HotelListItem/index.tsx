@@ -8,7 +8,6 @@ type HotelListProps = {
 };
 
 const HotelListItem = ({ hotel }: HotelListProps) => {
-  console.log(hotel);
   return (
     <Link
       href={`/minhas-hospedagens/${hotel.id}/reservas`}
