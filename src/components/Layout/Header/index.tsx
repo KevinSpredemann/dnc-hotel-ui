@@ -44,6 +44,7 @@ const Header = () => {
               className="mr-2"
             />
             <Image
+              key={user.avatar}
               src={user.avatar ?? "/no-avatar.png"}
               alt="Foto do perfil no Menu"
               width={20}
