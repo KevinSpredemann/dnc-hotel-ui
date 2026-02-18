@@ -38,7 +38,7 @@ const ReservationOwnerListItem = ({
           <Image
             src={
               reservation.user.avatar
-                ? `http://localhost:3000/uploads/${reservation.user.avatar}`
+                ? `${process.env.APP_API_URL || "http://localhost:3000"}/uploads/${reservation.user.avatar}`
                 : "/no-avatar.jpg"
             }
             alt={`Foto do usuário ${reservation.user.name}`}
