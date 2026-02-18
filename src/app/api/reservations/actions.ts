@@ -10,46 +10,60 @@ type reservationsPrevState = {
   error: boolean;
   message?: string;
 };
-
 export async function reserveHotelById(
   prevState: reservationsPrevState,
   formData: FormData,
 ) {
-  let reservationId;
-
   const accessToken = (await cookies()).get("access_token")?.value;
   if (!accessToken) redirect("/login");
+
+  const apiUrl = process.env.APP_API_URL;
+  if (!apiUrl) {
+    console.error("APP_API_URL não está definida!");
+    return {
+      ...prevState,
+      message: "Erro de configuração do servidor",
+      error: true,
+    };
+  }
+
+  let reservationId;
 
   try {
     const payload = {
       hotelId: Number(formData.get("hotelId")),
-      checkIn: formData.get("checkIn"),
-      checkOut: formData.get("checkOut"),
+      checkIn: String(formData.get("checkIn")),
+      checkOut: String(formData.get("checkOut")),
     };
 
-    const { data } = await axios.post(
-      `${process.env.APP_API_URL}/reservations`,
-      payload,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
+    console.log("Payload enviado:", JSON.stringify(payload));
+    const { data } = await axios.post(`${apiUrl}/reservations`, payload, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
       },
-    );
+    });
+
+    console.log("Resposta do backend:", data);
+    if (!data?.id) {
+      return {
+        ...prevState,
+        message: "Reserva criada, mas ID não retornou. Tente novamente.",
+        error: true,
+      };
+    }
 
     reservationId = data.id;
   } catch (error) {
-    console.log({ error });
+    console.error("Erro ao criar reserva:", error);
     return {
       ...prevState,
       message: "Não foi possível realizar a reserva",
       error: true,
     };
   }
-
   redirect(`/reservas/${reservationId}/sucesso`);
 }
-
 export async function getReservationById(id: number): Promise<Reservation> {
   const accessToken = (await cookies()).get("access_token")?.value;
   if (!accessToken) redirect("/login");
