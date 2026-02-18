@@ -15,11 +15,9 @@ export async function reserveHotelById(
   prevState: reservationsPrevState,
   formData: FormData,
 ) {
-  console.log("APP_API_URL:", process.env.APP_API_URL);
   let reservationId;
 
   const accessToken = (await cookies()).get("access_token")?.value;
-  console.log("TOKEN:", accessToken);
   if (!accessToken) redirect("/login");
 
   try {
@@ -29,11 +27,15 @@ export async function reserveHotelById(
       checkOut: formData.get("checkOut"),
     };
 
-    const { data } = await axios.post(`/reservations`, payload, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    const { data } = await axios.post(
+      `${process.env.APP_API_URL}/reservations`,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       },
-    });
+    );
 
     reservationId = data.id;
   } catch (error) {
