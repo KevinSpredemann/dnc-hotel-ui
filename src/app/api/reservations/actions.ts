@@ -15,9 +15,11 @@ export async function reserveHotelById(
   prevState: reservationsPrevState,
   formData: FormData,
 ) {
+  console.log("APP_API_URL:", process.env.APP_API_URL);
   let reservationId;
 
   const accessToken = (await cookies()).get("access_token")?.value;
+  console.log("TOKEN:", accessToken);
   if (!accessToken) redirect("/login");
 
   try {
