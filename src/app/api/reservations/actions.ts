@@ -38,6 +38,7 @@ export async function reserveHotelById(
 
     console.log("Payload enviado:", JSON.stringify(payload));
     const { data } = await axios.post(`${apiUrl}/reservations`, payload, {
+      timeout: 30000,
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
