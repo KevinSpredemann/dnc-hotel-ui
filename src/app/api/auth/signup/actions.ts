@@ -9,9 +9,7 @@ export async function signup(
   formData: FormData,
 ): Promise<UserFormState> {
   try {
-    const avatar = formData.get("avatar") as File;
-    const formDataAvatar = new FormData();
-    formDataAvatar.set("avatar", avatar);
+    const avatar = formData.get("avatar") as File | null;
 
     const payload = {
       name: formData.get("name"),
@@ -24,9 +22,15 @@ export async function signup(
       data: { access_token },
     } = await axios.post("/auth/register", payload);
 
-    if (avatar.size) {
+    if (avatar && avatar.size > 0) {
+      const formDataAvatar = new FormData();
+      formDataAvatar.append("avatar", avatar);
+
       await axios.post("/users/avatar", formDataAvatar, {
-        headers: { Authorization: `Bearer ${access_token}` },
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
     }
   } catch (error) {
