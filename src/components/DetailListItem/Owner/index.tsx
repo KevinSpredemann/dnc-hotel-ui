@@ -36,11 +36,7 @@ const ReservationOwnerListItem = ({
       <div className="flex w-full mt-5 md:mt-0">
         <div className="max-w-32 h-32">
           <Image
-            src={
-              reservation.user.avatar
-                ? `${process.env.APP_API_URL}/uploads/${reservation.user.avatar}`
-                : "/no-avatar.jpg"
-            }
+            src={reservation.user.avatar ?? "/no-avatar.jpg"}
             alt={`Foto do usuário ${reservation.user.name}`}
             width={500}
             height={500}
